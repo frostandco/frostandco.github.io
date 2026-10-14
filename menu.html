@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú | Frost & Co.</title>
+  <link rel="icon" type="image/png" href="images/Logo12.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- NAV STICKY -->
+<nav class="nav">
+  <span class="nav-logo">
+    <img src="images/Logo12.png" alt="Logo Frost & Co." class="nav-logo-img">
+    Frost <span>& Co.</span>
+  </span>
+  <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="menu.html" class="active">Menú</a></li>
+    <li><a href="nuestra-historia.html">Nuestra Historia</a></li>    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="page-hero-eyebrow">Todo lo que ofrecemos</span>
+  <h1>Nuestro <em>Menú</em></h1>
+  <p>Paletas, helados y dulces bien fríos, hechos con fruta real.</p>
+</section>
+
+<!-- BUSCADOR DE PRODUCTOS -->
+<section class="search-section">
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="productSearch" class="search-input" placeholder="Busca un producto... ej. fresa, chocolate, coco" oninput="filterProducts(this.value)" autocomplete="off">
+      <button type="button" class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="Limpiar búsqueda" style="display:none;">✕</button>
+    </div>
+    <p class="search-results-count" id="searchResultsCount"></p>
+  </div>
+</section>
+
+<!-- MENSAJE SIN RESULTADOS -->
+<p class="no-results-msg" id="noResultsMsg" style="display:none;">
+  😕 No encontramos productos que coincidan con tu búsqueda.<br>Intenta con otro sabor o palabra clave.
+</p>
+
+<!-- SECCIÓN FRUTALETAS -->
+<section id="frutaletas" class="pastry-section">
+  <div class="pastry-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Fruta natural</span>
+      <h2 class="section-title">Las <em>Frutaletas</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Paletas de agua hechas con fruta real, refrescantes y ligeras. Nuestro clásico de siempre.</p>
+    </div>
+    <div class="pastry-grid">
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/frutaleta-fresa.png" alt="Frutaleta Fresa"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Frutaleta Fresa</h3>
+          <p class="pastry-desc">Pulpa de fresa natural, dulce y refrescante.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Frutaleta Fresa', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/frutaleta-naranja.png" alt="Frutaleta Naranja"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Frutaleta Naranja</h3>
+          <p class="pastry-desc">Jugo de naranja recién exprimido, cítrico y vivo.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Frutaleta Naranja', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/frutaleta-mango.png" alt="Frutaleta Mango"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Frutaleta Mango</h3>
+          <p class="pastry-desc">Mango verde, ácido y refrescante, con todo el sabor tropical.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Frutaleta Mango', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/frutaleta-nance.png" alt="Frutaleta Nance"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Frutaleta Nance</h3>
+          <p class="pastry-desc">Nance dulce y aromático, un sabor muy salvadoreño.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Frutaleta Nance', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/frutaleta-coco.png" alt="Frutaleta Coco"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Frutaleta Coco</h3>
+          <p class="pastry-desc">Coco rallado con un toque cremoso natural.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Frutaleta Coco', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN ESPECIALES DE CHOCOLATE -->
+<section class="espresso-section" id="chocolate">
+  <div class="espresso-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Para los amantes del cacao</span>
+      <h2 class="section-title">Especiales <em>de Chocolate</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Paletas de chocolate cremosas y con mucho sabor, todas a un precio de lo más accesible.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card card-dark">
+        <div class="cup-img-wrapper" style="background:#0B5B63;">
+          <img class="cup-img" src="images/paletas/chocolate-con-mani.png" alt="Chocolate con Maní">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Especial de chocolate</span>
+          <h3 class="card-name">Chocolate con Maní</h3>
+          <p class="card-desc">Chocolate crujiente con trocitos de maní por encima.</p>
+          <div class="card-footer">
+            <span class="card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Chocolate con Maní', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="cup-img-wrapper" style="background:#0B5B63;">
+          <img class="cup-img" src="images/paletas/chocolate-fresa.png" alt="Chocolate Fresa">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Especial de chocolate</span>
+          <h3 class="card-name">Chocolate Fresa</h3>
+          <p class="card-desc">Paleta bañada en chocolate con un centro cremoso sabor fresa.</p>
+          <div class="card-footer">
+            <span class="card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Chocolate Fresa', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="cup-img-wrapper" style="background:#0B5B63;">
+          <img class="cup-img" src="images/paletas/chocolate-leche.png" alt="Chocolate Leche">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Especial de chocolate</span>
+          <h3 class="card-name">Chocolate Leche</h3>
+          <p class="card-desc">Chocolate suave por fuera y cremosa leche por dentro.</p>
+          <div class="card-footer">
+            <span class="card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Chocolate Leche', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="cup-img-wrapper" style="background:#0B5B63;">
+          <img class="cup-img" src="images/paletas/chocolate.png" alt="Chocolate">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Especial de chocolate</span>
+          <h3 class="card-name">Chocolate</h3>
+          <p class="card-desc">Paleta de chocolate intenso, el clásico de siempre.</p>
+          <div class="card-footer">
+            <span class="card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Chocolate', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="cup-img-wrapper" style="background:#0B5B63;">
+          <img class="cup-img" src="images/paletas/pincky-pop.png" alt="Pincky Pop">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Especial de chocolate</span>
+          <h3 class="card-name">Pincky Pop</h3>
+          <p class="card-desc">Paleta cremosa y suave, con sabor a chocolate blanco.</p>
+          <div class="card-footer">
+            <span class="card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Pincky Pop', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN GELETAS -->
+<section class="cold-section" id="geletas">
+  <div class="cold-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Suaves y coloridas</span>
+      <h2 class="section-title">Las <em>Geletas</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Paletas a base de gelatina, suaves y con sabores divertidos para todas las edades.</p>
+    </div>
+    <div class="cold-grid">
+      <div class="cold-card">
+        <div class="cold-card-img-wrapper"><img class="cold-card-img" src="images/paletas/geleta-fresa.png" alt="Geleta Fresa"></div>
+        <div class="cold-card-body">
+          <h3 class="cold-card-name">Geleta Fresa</h3>
+          <p class="cold-card-desc">Gelatina suave sabor fresa, textura ligera y fresca.</p>
+          <div class="cold-card-footer">
+            <span class="cold-card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Geleta Fresa', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="cold-card">
+        <div class="cold-card-img-wrapper"><img class="cold-card-img" src="images/paletas/geleta-uva.png" alt="Geleta Uva"></div>
+        <div class="cold-card-body">
+          <h3 class="cold-card-name">Geleta Uva</h3>
+          <p class="cold-card-desc">Gelatina de uva, dulce y con ese color morado clásico.</p>
+          <div class="cold-card-footer">
+            <span class="cold-card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Geleta Uva', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="cold-card">
+        <div class="cold-card-img-wrapper"><img class="cold-card-img" src="images/paletas/geleta-chicle.png" alt="Geleta Chicle"></div>
+        <div class="cold-card-body">
+          <h3 class="cold-card-name">Geleta Chicle</h3>
+          <p class="cold-card-desc">El sabor a chicle favorito de los más pequeños.</p>
+          <div class="cold-card-footer">
+            <span class="cold-card-price">$0.35</span>
+            <button class="btn-add" onclick="addToCart('Geleta Chicle', 0.35)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN SOMBRILLITAS -->
+<section class="pastry-section" id="especiales">
+  <div class="pastry-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Nuestra insignia</span>
+      <h2 class="section-title">Las <em>Sombrillitas</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Nuestra paleta insignia en forma de sombrillita, en sabores fresa, coco y chicle.</p>
+    </div>
+    <div class="pastry-grid">
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/sombrilla-fresa.png" alt="Sombrillita Fresa"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Sombrillita Fresa</h3>
+          <p class="pastry-desc">Nuestra paleta insignia en forma de sombrillita, sabor fresa.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.50</span>
+            <button class="btn-add" onclick="addToCart('Sombrillita Fresa', 0.50)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/sombrilla-coco.png" alt="Sombrillita Coco"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Sombrillita Coco</h3>
+          <p class="pastry-desc">Nuestra paleta insignia en forma de sombrillita, sabor coco.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.50</span>
+            <button class="btn-add" onclick="addToCart('Sombrillita Coco', 0.50)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/sombrilla-chicle.png" alt="Sombrillita Chicle"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Sombrillita Chicle</h3>
+          <p class="pastry-desc">Nuestra paleta insignia en forma de sombrillita, sabor chicle.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.50</span>
+            <button class="btn-add" onclick="addToCart('Sombrillita Chicle', 0.50)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/sombrilla-limon.png" alt="Sombrillita Limón"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Sombrillita Limón</h3>
+          <p class="pastry-desc">Nuestra paleta insignia en forma de sombrillita, sabor limón.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.50</span>
+            <button class="btn-add" onclick="addToCart('Sombrillita Limón', 0.50)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="pastry-card">
+        <div class="pastry-img-wrapper"><img class="pastry-img" src="images/paletas/sombrilla-nance.png" alt="Sombrillita Nance"></div>
+        <div class="pastry-card-body">
+          <h3 class="pastry-name">Sombrillita Nance</h3>
+          <p class="pastry-desc">Nuestra paleta insignia en forma de sombrillita, sabor nance.</p>
+          <div class="pastry-footer">
+            <span class="pastry-price">$0.50</span>
+            <button class="btn-add" onclick="addToCart('Sombrillita Nance', 0.50)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="images/Logo12.png" alt="Logo Frost & Co." class="footer-logo-img">
+  <div class="footer-logo">Frost <em>& Co.</em></div>
+  <p class="footer-tagline">"El sabor frío que refresca tu día"</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="menu.html">Menú</a></li>
+    <li><a href="nuestra-historia.html">Nuestra historia</a></li>    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+
+  <div class="footer-contact">
+    <a href="tel:+50361830519" class="footer-contact-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1.2 1.2 0 0 1 1.2-.3c1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3v3.6c0 .7-.6 1.3-1.3 1.3C10.6 21.6 2.4 13.4 2.4 3.3 2.4 2.6 3 2 3.7 2h3.6c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2z"/></svg>
+      +503 6183-0519
+    </a>
+    <a href="mailto:frostco31@gmail.com" class="footer-contact-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+      frostco31@gmail.com
+    </a>
+  </div>
+
+  <ul class="footer-social">
+    <li>
+      <a href="https://www.instagram.com/frostandco1?igsh=ZnV4MG0wbHd2ZnZr&igsi=ZnV4MG0wbHd2ZnZr" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.tiktok.com/@golden.root.sv?_r=1&_t=ZS-98s7pV2KmYu" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14.5 2h2.7c.2 1.5 1 2.9 2.3 3.8 1 .7 2.1 1 3.3 1.1v2.9c-1.6 0-3.1-.5-4.4-1.4v6.8c0 3.4-2.7 6.1-6.1 6.1S6.2 18.6 6.2 15.2c0-3.3 2.6-5.9 5.8-6.1v3c-1.5.2-2.7 1.5-2.7 3.1 0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1V2z"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/50361830519?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios." aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2.2 21.8l5-1.3c1.4.8 3.1 1.2 4.8 1.2 5.4 0 9.8-4.4 9.8-9.8s-4.4-9.7-9.8-9.7zm0 17.8c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3c-.9-1.3-1.3-2.8-1.3-4.3 0-4.4 3.6-8 8-8s8 3.6 8 8-3.5 8.1-7.8 8.1zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.8-2-1.4-.5-.5-1-1.2-1.4-1.9-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+      </a>
+    </li>
+  </ul>
+
+  <p class="footer-copy">© 2026 Frost & Co. · Todos los derechos reservados · San Salvador, El Salvador</p>
+</footer>
+
+<!-- CART FLOAT -->
+<button class="cart-float" onclick="openCart()">
+  🛒 Mi Pedido
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- LIGHTBOX IMAGEN DE PALETA -->
+<div class="img-lightbox-overlay" id="imgLightbox" onclick="closeImgLightbox(event)">
+  <div class="img-lightbox-content">
+    <button class="img-lightbox-close" onclick="closeImgLightbox(event)" aria-label="Cerrar">✕</button>
+    <img id="imgLightboxImg" src="" alt="">
+    <p class="img-lightbox-caption" id="imgLightboxCaption"></p>
+  </div>
+</div>
+
+<!-- MODAL CARRITO -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <button class="modal-back" id="modalBackBtn" onclick="backToCart()" style="display:none;" aria-label="Volver al pedido">←</button>
+        <span class="modal-cart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.76L20.6 8H6"/></svg></span>
+        <h2 id="modalTitle">Mi Pedido</h2>
+      </div>
+      <button class="modal-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="modal-body" id="cartBody">
+      <p class="cart-empty">Tu pedido está vacío.<br>¡Elige algo delicioso! 🍧</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>
